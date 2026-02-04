@@ -9,6 +9,8 @@ import { ProductGrid } from '@/components/store/ProductGrid';
 import { TrustBadges } from '@/components/store/TrustBadges';
 import { FAQ } from '@/components/store/FAQ';
 import { WhatsAppButton } from '@/components/store/WhatsAppButton';
+import { HeroSection } from '@/components/store/HeroSection';
+import { Collections } from '@/components/store/Collections';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
@@ -51,7 +53,6 @@ const Index = () => {
     setLoading(false);
   };
 
-  const featuredProducts = products.filter(p => p.is_featured).slice(0, 10);
   const newArrivals = products.filter(p => p.is_new_arrival).slice(0, 10);
 
   return (
@@ -61,7 +62,10 @@ const Index = () => {
       <WhatsAppButton />
       
       <main className="flex-1">
-        <div className="container-narrow">
+        {/* Hero Section - only on homepage without filters */}
+        {!searchQuery && !filter && <HeroSection />}
+
+        <div id="products" className="container-narrow">
           {/* Page title for search/filter */}
           {(searchQuery || filter) && (
             <div className="py-6 border-b border-border">
@@ -87,15 +91,8 @@ const Index = () => {
             </div>
           ) : (
             <>
-              {!searchQuery && !filter && featuredProducts.length > 0 && (
-                <ProductGrid 
-                  products={featuredProducts} 
-                  title="ABSOLUTE CINEMA" 
-                  showViewAll 
-                  viewAllLink="/?filter=featured"
-                  carousel
-                />
-              )}
+              {/* Collections section - replaces ABSOLUTE CINEMA */}
+              {!searchQuery && !filter && <Collections />}
 
               {!searchQuery && !filter && newArrivals.length > 0 && (
                 <ProductGrid 
