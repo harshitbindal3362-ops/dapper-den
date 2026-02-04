@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Product } from '@/types/database';
 import { useCart } from '@/contexts/CartContext';
-import { Button } from '@/components/ui/button';
 
 interface ProductCardProps {
   product: Product;
@@ -23,9 +22,9 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link to={`/product/${product.id}`} className="group block">
-      <div className="product-card bg-card">
+      <div className="product-card bg-card border border-border">
         {/* Image */}
-        <div className="relative aspect-square overflow-hidden bg-muted">
+        <div className="relative aspect-square overflow-hidden bg-secondary">
           <img
             src={product.images?.[0] || '/placeholder.svg'}
             alt={product.name}
@@ -33,44 +32,55 @@ export function ProductCard({ product }: ProductCardProps) {
           />
           
           {/* Badges */}
-          <div className="absolute top-2 left-2 flex flex-col gap-1">
-            {isOnSale && (
-              <span className="badge-sale">Sale</span>
+          <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+            {isOnSale && !isOutOfStock && (
+              <span className="bg-foreground text-background px-3 py-1 text-xs font-semibold rounded-sm">
+                Sale
+              </span>
             )}
             {isOutOfStock && (
-              <span className="badge-sold-out">Sold out</span>
+              <span className="bg-foreground text-background px-3 py-1 text-xs font-semibold rounded-sm">
+                Sold out
+              </span>
             )}
           </div>
         </div>
 
         {/* Info */}
-        <div className="p-3 space-y-2">
-          <h3 className="font-medium text-sm line-clamp-2 min-h-[2.5rem]">
+        <div className="p-4 space-y-2 bg-secondary/50">
+          <h3 className="font-medium text-sm uppercase tracking-wide line-clamp-1">
             {product.name}
           </h3>
 
           {/* Price */}
           <div className="flex items-center gap-2">
             {isOnSale && (
-              <span className="price-original">₹{product.original_price?.toLocaleString()}</span>
+              <span className="text-muted-foreground line-through text-sm">
+                Rs. {product.original_price?.toLocaleString()}
+              </span>
             )}
-            <span className="price-current">₹{product.price.toLocaleString()}</span>
+            <span className="font-semibold text-foreground">
+              Rs. {product.price.toLocaleString()}
+            </span>
           </div>
 
           {/* Stock status */}
           {isLowStock && (
-            <p className="stock-low">Only {product.stock_quantity} left</p>
+            <p className="text-sale text-xs font-medium">Only {product.stock_quantity} left</p>
           )}
 
           {/* Add to cart button */}
-          <Button
+          <button
             onClick={handleAddToCart}
             disabled={isOutOfStock}
-            variant="outline"
-            className={`w-full mt-2 ${isOutOfStock ? 'btn-sold-out' : 'btn-outline'}`}
+            className={`w-full mt-3 py-2.5 text-sm font-medium border transition-colors ${
+              isOutOfStock 
+                ? 'border-border text-muted-foreground cursor-not-allowed' 
+                : 'border-foreground text-foreground hover:bg-foreground hover:text-background'
+            }`}
           >
             {isOutOfStock ? 'Sold out' : 'Add to cart'}
-          </Button>
+          </button>
         </div>
       </div>
     </Link>

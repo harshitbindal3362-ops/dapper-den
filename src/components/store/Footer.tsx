@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">LUXE ACCESSORIES</h3>
+            <h3 className="text-xl font-bold mb-4 tracking-tight">LUXE ACCESSORIES</h3>
             <p className="text-background/70 text-sm leading-relaxed max-w-md">
               Premium men's accessories crafted with stainless steel. Bold designs for those who want to stand out effortlessly.
             </p>
@@ -18,7 +18,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wide">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="text-background/70 hover:text-background transition-colors">
@@ -35,12 +35,17 @@ export function Footer() {
                   New Arrivals
                 </Link>
               </li>
+              <li>
+                <Link to="/account" className="text-background/70 hover:text-background transition-colors">
+                  My Orders
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Policies */}
           <div>
-            <h4 className="font-semibold mb-4">Policies</h4>
+            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wide">Policies</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/page/about-us" className="text-background/70 hover:text-background transition-colors">

@@ -8,6 +8,7 @@ import { CartDrawer } from '@/components/store/CartDrawer';
 import { ProductGrid } from '@/components/store/ProductGrid';
 import { TrustBadges } from '@/components/store/TrustBadges';
 import { FAQ } from '@/components/store/FAQ';
+import { WhatsAppButton } from '@/components/store/WhatsAppButton';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
@@ -50,13 +51,14 @@ const Index = () => {
     setLoading(false);
   };
 
-  const featuredProducts = products.filter(p => p.is_featured).slice(0, 8);
-  const newArrivals = products.filter(p => p.is_new_arrival).slice(0, 8);
+  const featuredProducts = products.filter(p => p.is_featured).slice(0, 10);
+  const newArrivals = products.filter(p => p.is_new_arrival).slice(0, 10);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <CartDrawer />
+      <WhatsAppButton />
       
       <main className="flex-1">
         <div className="container-narrow">
@@ -68,7 +70,9 @@ const Index = () => {
                   ? `Search results for "${searchQuery}"`
                   : filter === 'featured' 
                     ? 'Featured Products'
-                    : 'New Arrivals'
+                    : filter === 'new'
+                      ? 'New Arrivals'
+                      : 'All Products'
                 }
               </h1>
               <p className="text-muted-foreground mt-1">
@@ -86,24 +90,26 @@ const Index = () => {
               {!searchQuery && !filter && featuredProducts.length > 0 && (
                 <ProductGrid 
                   products={featuredProducts} 
-                  title="Featured" 
+                  title="ABSOLUTE CINEMA" 
                   showViewAll 
                   viewAllLink="/?filter=featured"
+                  carousel
                 />
               )}
 
               {!searchQuery && !filter && newArrivals.length > 0 && (
                 <ProductGrid 
                   products={newArrivals} 
-                  title="New Arrivals"
+                  title="BEST SELLERS"
                   showViewAll
                   viewAllLink="/?filter=new"
+                  carousel
                 />
               )}
 
               <ProductGrid 
                 products={products} 
-                title={!searchQuery && !filter ? "All Products" : undefined}
+                title={!searchQuery && !filter ? "ALL PRODUCTS" : undefined}
               />
 
               {products.length === 0 && (
