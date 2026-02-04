@@ -1,30 +1,39 @@
-import { Lock, Truck, RefreshCw } from 'lucide-react';
+import { Lock, Truck, Gem, Wrench } from 'lucide-react';
+
+const badges = [
+  {
+    icon: Lock,
+    title: 'secure checkout',
+    description: 'Safe and easy shopping experience just a click away!',
+  },
+  {
+    icon: Truck,
+    title: 'free delivery',
+    description: 'Enjoy Stress-Free Shopping with Free and Fast Shipping in Just 4-7 Days!',
+  },
+  {
+    icon: Gem,
+    title: 'high quality',
+    description: 'All our accessories are crafted with premium stainless steel',
+  },
+  {
+    icon: Wrench,
+    title: 'easy returns',
+    description: '7-day hassle-free return and replacement policy',
+  },
+];
 
 export function TrustBadges() {
   return (
-    <section className="section-spacing border-y border-border">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-        <div className="flex flex-col items-center text-center">
-          <Lock className="h-8 w-8 mb-3" />
-          <h3 className="font-semibold mb-1">Secure Checkout</h3>
-          <p className="text-sm text-muted-foreground">
-            Safe and easy shopping experience just a click away!
-          </p>
-        </div>
-        <div className="flex flex-col items-center text-center">
-          <Truck className="h-8 w-8 mb-3" />
-          <h3 className="font-semibold mb-1">Free Delivery</h3>
-          <p className="text-sm text-muted-foreground">
-            Enjoy stress-free shopping! Fast shipping in just 5-7 days.
-          </p>
-        </div>
-        <div className="flex flex-col items-center text-center">
-          <RefreshCw className="h-8 w-8 mb-3" />
-          <h3 className="font-semibold mb-1">Easy Exchange</h3>
-          <p className="text-sm text-muted-foreground">
-            Hassle-free exchanges within 48 hours of delivery.
-          </p>
-        </div>
+    <section className="section-spacing border-t border-border">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        {badges.map((badge) => (
+          <div key={badge.title} className="text-center">
+            <badge.icon className="h-10 w-10 mx-auto mb-4 text-foreground" strokeWidth={1.5} />
+            <h4 className="font-bold italic text-base mb-2">{badge.title}</h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">{badge.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
