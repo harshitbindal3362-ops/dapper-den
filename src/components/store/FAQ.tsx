@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 const faqs = [
   {
@@ -27,24 +28,28 @@ const faqs = [
 export function FAQ() {
   return (
     <section className="section-spacing">
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
-        Frequently Asked Questions
-      </h2>
+      <ScrollReveal animation="fade-up">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
+          Frequently Asked Questions
+        </h2>
+      </ScrollReveal>
       <div className="max-w-2xl mx-auto">
         <Accordion type="single" collapsible className="space-y-3">
+          {/* Each FAQ item animates in with stagger — customize delay below */}
           {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
-              value={`item-${index}`}
-              className="border-0"
-            >
-              <AccordionTrigger className="bg-foreground text-background px-4 py-3 hover:no-underline text-left text-sm font-semibold">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="px-4 py-4 text-sm leading-relaxed">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+            <ScrollReveal key={index} animation="fade-up" delay={index * 100} duration={500}>
+              <AccordionItem 
+                value={`item-${index}`}
+                className="border-0"
+              >
+                <AccordionTrigger className="bg-foreground text-background px-4 py-3 hover:no-underline text-left text-sm font-semibold">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-4 py-4 text-sm leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </ScrollReveal>
           ))}
         </Accordion>
       </div>
