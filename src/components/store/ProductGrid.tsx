@@ -2,6 +2,7 @@ import { Product } from '@/types/database';
 import { ProductCard } from './ProductCard';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 interface ProductGridProps {
   products: Product[];
@@ -26,15 +27,26 @@ export function ProductGrid({ products, title, showViewAll, viewAllLink, carouse
 
   return (
     <section className="section-spacing">
+      {/* Section title — customize text via the `title` prop */}
       {title && (
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold italic text-foreground">{title}</h2>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold italic text-foreground">{title}</h2>
+          </div>
+        </ScrollReveal>
       )}
       
+      {/* Product cards with staggered reveal — customize grid columns below */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {displayProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {displayProducts.map((product, index) => (
+          <ScrollReveal 
+            key={product.id} 
+            animation="fade-up" 
+            delay={index * 80}
+            duration={600}
+          >
+            <ProductCard product={product} />
+          </ScrollReveal>
         ))}
       </div>
 
@@ -60,14 +72,16 @@ export function ProductGrid({ products, title, showViewAll, viewAllLink, carouse
       )}
 
       {showViewAll && viewAllLink && (
-        <div className="flex justify-center mt-8">
-          <a 
-            href={viewAllLink} 
-            className="bg-foreground text-background px-8 py-3 text-sm font-medium hover:bg-foreground/90 transition-colors"
-          >
-            View all
-          </a>
-        </div>
+        <ScrollReveal animation="fade-in" delay={300}>
+          <div className="flex justify-center mt-8">
+            <a 
+              href={viewAllLink} 
+              className="bg-foreground text-background px-8 py-3 text-sm font-medium hover:bg-foreground/90 transition-colors"
+            >
+              View all
+            </a>
+          </div>
+        </ScrollReveal>
       )}
     </section>
   );

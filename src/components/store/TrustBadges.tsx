@@ -1,4 +1,5 @@
 import { Lock, Truck, Gem, Wrench } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 const badges = [
   {
@@ -27,12 +28,20 @@ export function TrustBadges() {
   return (
     <section className="section-spacing border-t border-border">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-        {badges.map((badge) => (
-          <div key={badge.title} className="text-center">
-            <badge.icon className="h-10 w-10 mx-auto mb-4 text-foreground" strokeWidth={1.5} />
-            <h4 className="font-bold italic text-base mb-2">{badge.title}</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">{badge.description}</p>
-          </div>
+        {/* Each badge animates in with staggered timing — customize delay multiplier */}
+        {badges.map((badge, index) => (
+          <ScrollReveal 
+            key={badge.title} 
+            animation="fade-up" 
+            delay={index * 120}
+            duration={600}
+          >
+            <div className="text-center">
+              <badge.icon className="h-10 w-10 mx-auto mb-4 text-foreground" strokeWidth={1.5} />
+              <h4 className="font-bold italic text-base mb-2">{badge.title}</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">{badge.description}</p>
+            </div>
+          </ScrollReveal>
         ))}
       </div>
     </section>
