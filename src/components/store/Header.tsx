@@ -114,18 +114,39 @@ export function Header() {
                       All products
                     </Link>
                     <Link 
-                      to="/?filter=featured" 
+                      to="/?search=necklace" 
                       className="block py-2 text-lg font-medium"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Featured
+                      Necklaces
                     </Link>
                     <Link 
-                      to="/?filter=new" 
+                      to="/?search=bracelet" 
                       className="block py-2 text-lg font-medium"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      New Arrivals
+                      Bracelets
+                    </Link>
+                    <Link 
+                      to="/?search=ring" 
+                      className="block py-2 text-lg font-medium"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Rings
+                    </Link>
+                    <Link 
+                      to="/?search=earring" 
+                      className="block py-2 text-lg font-medium"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Earrings
+                    </Link>
+                    <Link 
+                      to="/?filter=under299" 
+                      className="block py-2 text-lg font-medium"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      UNDER 299
                     </Link>
                     <Link 
                       to="/page/contact" 
@@ -175,7 +196,7 @@ export function Header() {
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center flex-wrap gap-x-1 gap-y-0">
               <Link 
                 to="/account" 
                 className="text-sm font-medium hover:opacity-70 transition-opacity px-3 py-2 underline underline-offset-4"
@@ -195,16 +216,34 @@ export function Header() {
                 All products
               </Link>
               <Link 
-                to="/?filter=featured" 
+                to="/?search=necklace" 
                 className="text-sm font-medium hover:opacity-70 transition-opacity px-3 py-2"
               >
-                Featured
+                Necklaces
               </Link>
               <Link 
-                to="/?filter=new" 
+                to="/?search=bracelet" 
                 className="text-sm font-medium hover:opacity-70 transition-opacity px-3 py-2"
               >
-                New Arrivals
+                Bracelets
+              </Link>
+              <Link 
+                to="/?search=ring" 
+                className="text-sm font-medium hover:opacity-70 transition-opacity px-3 py-2"
+              >
+                Rings
+              </Link>
+              <Link 
+                to="/?search=earring" 
+                className="text-sm font-medium hover:opacity-70 transition-opacity px-3 py-2"
+              >
+                Earrings
+              </Link>
+              <Link 
+                to="/?filter=under299" 
+                className="text-sm font-medium hover:opacity-70 transition-opacity px-3 py-2"
+              >
+                UNDER 299
               </Link>
               <Link 
                 to="/page/contact" 

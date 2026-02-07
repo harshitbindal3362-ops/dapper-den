@@ -41,6 +41,8 @@ const Index = () => {
       query = query.eq('is_featured', true);
     } else if (filter === 'new') {
       query = query.eq('is_new_arrival', true);
+    } else if (filter === 'under299') {
+      query = query.lte('price', 299);
     }
 
     const { data, error } = await query;
@@ -76,7 +78,9 @@ const Index = () => {
                     ? 'Featured Products'
                     : filter === 'new'
                       ? 'New Arrivals'
-                      : 'All Products'
+                      : filter === 'under299'
+                        ? 'Under ₹299'
+                        : 'All Products'
                 }
               </h1>
               <p className="text-muted-foreground mt-1">
