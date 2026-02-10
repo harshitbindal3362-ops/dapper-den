@@ -53,6 +53,13 @@
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 0% 90%;
     --sidebar-ring: 0 0% 8%;
+
+    /* Showcase section */
+    --showcase-from: 270 50% 8%;
+    --showcase-via: 270 40% 5%;
+    --showcase-to: 0 0% 4%;
+    --showcase-glow: 270 60% 40%;
+    --showcase-accent: 270 80% 65%;
   }
 
   .dark {
@@ -99,6 +106,13 @@
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 18%;
     --sidebar-ring: 0 0% 60%;
+
+    /* Showcase section */
+    --showcase-from: 270 50% 10%;
+    --showcase-via: 270 40% 6%;
+    --showcase-to: 0 0% 4%;
+    --showcase-glow: 270 60% 45%;
+    --showcase-accent: 270 80% 70%;
   }
 }
 
@@ -275,6 +289,15 @@
     to {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  @keyframes showcaseFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
     }
   }
 
