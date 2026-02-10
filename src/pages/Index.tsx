@@ -11,6 +11,7 @@ import { FAQ } from '@/components/store/FAQ';
 import { WhatsAppButton } from '@/components/store/WhatsAppButton';
 import { HeroSection } from '@/components/store/HeroSection';
 import { Collections } from '@/components/store/Collections';
+import { ProductShowcase } from '@/components/store/ProductShowcase';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
@@ -66,6 +67,9 @@ const Index = () => {
       <main className="flex-1">
         {/* Hero Section - only on homepage without filters */}
         {!searchQuery && !filter && <HeroSection />}
+        
+        {/* Luxury product showcase — only on homepage */}
+        {!searchQuery && !filter && <ProductShowcase />}
 
         <div id="products" className="container-narrow">
           {/* Page title for search/filter */}

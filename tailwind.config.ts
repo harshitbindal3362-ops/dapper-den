@@ -68,6 +68,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        showcase: {
+          DEFAULT: "hsl(var(--showcase-from))",
+          from: "hsl(var(--showcase-from))",
+          via: "hsl(var(--showcase-via))",
+          to: "hsl(var(--showcase-to))",
+          glow: "hsl(var(--showcase-glow))",
+          accent: "hsl(var(--showcase-accent))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -83,10 +91,16 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "showcase-float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "showcase-float": "showcase-float 4s ease-in-out infinite",
+      },
       },
     },
   },
