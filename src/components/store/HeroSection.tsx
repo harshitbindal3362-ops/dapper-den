@@ -54,12 +54,9 @@ export function HeroSection() {
             href="#products"
             className="group"
           >
-            <Button 
-              size="lg"
-              className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white hover:text-black px-12 py-6 text-lg font-medium transition-all duration-300"
-            >
+            <LightBeamButton className="rounded-md">
               Shop Now
-            </Button>
+            </LightBeamButton>
           </a>
         </ScrollReveal>
       </div>

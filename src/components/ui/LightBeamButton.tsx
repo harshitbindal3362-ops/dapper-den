@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-export interface LightBeamButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface LightBeamButtonProps {
   children: React.ReactNode;
   className?: string;
   gradientColors?: [string, string, string];
