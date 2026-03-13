@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { HeroScene } from '@/components/store/HeroScene';
+import { LightBeamButton } from '@/components/ui/LightBeamButton';
 import hero1 from '@/assets/hero-1.jpg';
 import hero2 from '@/assets/hero-2.jpg';
 import hero3 from '@/assets/hero-3.jpg';
@@ -54,12 +54,9 @@ export function HeroSection() {
             href="#products"
             className="group"
           >
-            <Button 
-              size="lg"
-              className="bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white hover:text-black px-12 py-6 text-lg font-medium transition-all duration-300"
-            >
+            <LightBeamButton className="rounded-md">
               Shop Now
-            </Button>
+            </LightBeamButton>
           </a>
         </ScrollReveal>
       </div>
