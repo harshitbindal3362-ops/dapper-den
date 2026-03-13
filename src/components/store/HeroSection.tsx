@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { HeroScene } from '@/components/store/HeroScene';
+import { LightBeamButton } from '@/components/ui/LightBeamButton';
 import hero1 from '@/assets/hero-1.jpg';
 import hero2 from '@/assets/hero-2.jpg';
 import hero3 from '@/assets/hero-3.jpg';
