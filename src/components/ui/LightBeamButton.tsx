@@ -6,6 +6,7 @@ export interface LightBeamButtonProps {
   children: React.ReactNode;
   className?: string;
   gradientColors?: [string, string, string];
+  onClick?: () => void;
 }
 
 /**
