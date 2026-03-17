@@ -11,7 +11,7 @@ import { FAQ } from '@/components/store/FAQ';
 import { WhatsAppButton } from '@/components/store/WhatsAppButton';
 import { HeroSection } from '@/components/store/HeroSection';
 import { Collections } from '@/components/store/Collections';
-import { ProductShowcase } from '@/components/store/ProductShowcase';
+
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
