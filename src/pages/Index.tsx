@@ -69,7 +69,7 @@ const Index = () => {
         {!searchQuery && !filter && <HeroSection />}
         
         {/* Luxury product showcase — only on homepage */}
-        {!searchQuery && !filter && <ProductShowcase />}
+        
 
         <div id="products" className="container-narrow">
           {/* Page title for search/filter */}
