@@ -2,7 +2,8 @@
 
 ## Project info
 
-**URL**: https://mens-style-curator.lovable.app/
+**URL**:
+https://mens-style-curator.lovable.app/
 
 ## How can I edit this code?
 
