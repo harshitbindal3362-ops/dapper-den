@@ -50,7 +50,7 @@ export function LightBeamButton({
         )}
         {...props}
       >
-        {children}
+        <span className="relative z-10">{children}</span>
 
         {/* Rotating gradient border */}
         <div
